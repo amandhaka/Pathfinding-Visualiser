@@ -1,16 +1,90 @@
 .node{
     width: 22.1px;
     height: 22px;
+    margin-left:1.5px !important;
     outline: 1px solid#89CFF0;
-    margin-left: 1.5px !important;
     display: inline-block;
-    margin-bottom:-2.5px !important;
+    margin-bottom: -3.5px !important;
 }
 .node-start{
-    background-image:url("../icons/logo\ \(1\).png");
+     background-image:url("../icons/user.svg");
 }
 .node-finish{
-    background-image: url("../icons/logo.png");
+     background-image: url("../icons/flag.svg"); 
+}
+.node-start-visited{
+    background-image: url("../icons/user.svg");
+    animation-name:startAndEndAnimations ;
+    animation-duration: 1.5s;
+    animation-timing-function:ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+.node-finish-visited{
+    background-image: url("../icons/flag.svg");
+    animation-name:startAndEndAnimations ;
+    animation-duration: 1.5s;
+    animation-timing-function:ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+.node-start-shortest-path{
+    background-image: url("../icons/user.svg");
+    animation-name:startAndEndshortestPath ;
+    animation-duration: 1s;
+    animation-timing-function:ease-in;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count:3;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+.node-finish-shortest-path{
+    background-image: url("../icons/flag.svg");
+    animation-name:startAndEndshortestPath ;
+    animation-duration: 1s;
+    animation-timing-function:ease-in;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count:3;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+@keyframes startAndEndshortestPath {
+    0% {
+      transform: scale(0.6);
+      background-color: rgb(255, 254, 106);
+    }
+  
+    50% {
+      transform: scale(1.5);
+      background-color: rgb(255, 254, 106);
+    }
+  
+    100% {
+      transform: scale(1);
+      background-color: rgb(2, 254, 106);
+    }
+  }
+@keyframes startAndEndAnimations{
+    0%{
+        background-color: #89CFF0;
+        transform: scale(0.8);
+    }
+    50%{
+        background-color: rgba(0,217,159,0.75);
+        transform: scale(1.4);
+    }
+    100%{
+        background-color: rgba(0, 190 , 218, 0.75);
+        transform: scale(1);
+    }
 }
 .node-wall{
     outline-color: black;

@@ -4,8 +4,47 @@ body{
 .grid{
   position: absolute;
   top:30%;
-  left:20%;
-  transform: translate(-10%,-20%); 
+  left:3%;
+  transform: translate(0,-20%); 
+}
+@media screen and (max-width:1144px){
+  .grid{
+    position: relative;
+    margin-top:200px !important;
+  }
+  .nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around !important;
+  }
+  .formControl{
+    left:30%;
+    width: 200px !important;
+    height: 40px !important;
+    position: relative;
+ }
+  .button{
+    display: inline-flex;
+    width: 40%;
+    height: 20px;
+  }
+  .buttonText{
+    font-size: 10px !important ;
+  }
+  .image{
+    display: none;
+  }
+  .button-group{
+    display: inline-flex !important;
+  }
+  .labelText{
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+  }
+}
+.labelText{
+  font-size: medium;
 }
 .nav{
   justify-content: center;
@@ -13,11 +52,15 @@ body{
   background-color: #002244;
   padding-bottom:12px;
   box-shadow: 0 8px 6px -6px #999;
+  display: inline-flex;
+  width: 100vw;
 }
 .formControl{
   width: 280px;
-  border-radius: 10px !important;
   margin-top:3px !important;
+}
+.formControl:hover{
+  border: 1px solid rgba(255,0,0,0.9);
 }
 .button{
   top:10px;
@@ -27,7 +70,13 @@ body{
 }
 .buttonText{
   color:white;
+  font-family:'Frank Ruhl Libre', serif !important;
 }
 .button :hover{
   color:rgba(255,0,0,0.9)
+}
+
+.image{
+  margin-top: 20px;
+  position: relative;
 }

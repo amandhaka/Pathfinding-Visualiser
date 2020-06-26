@@ -1,0 +1,19 @@
+@media screen and (max-width:1144px){
+    .dialog
+    {
+        width: 80%;
+    }
+}
+.title{
+    height: 70px;
+    width: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;    
+    background-image: url("../icons/logo1.png");
+}
+@media screen and (max-width:1200px){
+    .title{
+        height: 30px;
+        width: 200px;
+    }
+}
