@@ -39,12 +39,12 @@ body{
   }
   .labelText{
     font-size: 12px !important;
-    font-weight: 600 !important;
-
+    font-weight: 800 !important;
   }
 }
 .labelText{
   font-size: medium;
+  color:#ff6363;
 }
 .nav{
   justify-content: center;
@@ -65,12 +65,13 @@ body{
 .button{
   top:10px;
   margin-top:4px !important;
-  margin-left:5px !important;
-  margin-right:5px !important ;
+  margin-left:2px !important;
+  margin-right:2px !important ;
 }
 .buttonText{
   color:white;
-  font-family:'Frank Ruhl Libre', serif !important;
+  font-family: 'Kodchasan', sans-serif  !important;
+  
 }
 .button :hover{
   color:rgba(255,0,0,0.9)

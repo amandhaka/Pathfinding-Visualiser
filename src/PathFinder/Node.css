@@ -128,20 +128,20 @@
 @keyframes visitedAnimations{
     0%{
         transform: scale(0.3);
-        background-color: rgba(107, 107, 131, 0.75);
+        background-color:#336d88;
         border-radius: 100%;
     }
     50%{
-        background-color: rgba(17,104,217,0.75);
+        background-color: #89c9b8;
         border-radius: 50%;
     }
     75%{
         transform: scale(1.2);
-        background-color: rgba(0,217,159,0.75);
+        background-color: #0fabbc;
     }
     100%{
         transform:scale(1);
-        background-color: rgba(0, 190 , 218, 0.75);
+        background-color: #12cad6;
     }
 }
 .node-shortest-path {

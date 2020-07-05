@@ -35,10 +35,18 @@ const PathFinder = () => {
   const [startCol, setStartCol] = useState(-1);
   const [finishRow, setFinishRow] = useState(-1);
   const [finishCol, setFinishCol] = useState(-1);
+  const [disableButtons,setDisableButtons]=useState({});
   
   useEffect(() => {
     const newGrid = getIntialGrid();
     setGrid(newGrid);
+    const disableButton={
+      visualise:false,
+      clearBoard:false,
+      previousBoard:false,
+      maze:false
+    }
+    setDisableButtons(disableButton);
   }, []);
   const createNode = (col, row) => {
     return {
@@ -76,6 +84,16 @@ const PathFinder = () => {
     // console.log(visitedNodes);
     const nodesInShortestPath = getNodesInShortestPathOrder(finishNode);
     animatePath(visitedNodes, nodesInShortestPath);
+    setTimeout(()=>{
+      const disableButton1={
+        ...disableButtons,
+        visualise:false,
+        clearBoard:false,
+        previousBoard:false,
+        maze:false
+      }
+      setDisableButtons(disableButton1);
+    },visitedNodes.length*10);
   };
   const findDfs = () => {
     const startNode = grid[startRow][startCol];
@@ -84,6 +102,16 @@ const PathFinder = () => {
     //console.log(visitedNodes);
     const nodesInShortestPath = getShortestPath(finishNode);
     animatePath(visitedNodes, nodesInShortestPath);
+    setTimeout(()=>{
+      const disableButton1={
+        ...disableButtons,
+        visualise:false,
+        clearBoard:false,
+        previousBoard:false,
+        maze:false
+      }
+      setDisableButtons(disableButton1);
+    },visitedNodes.length*10);
   };
   const findAstar = () => {
     const startNode = grid[startRow][startCol];
@@ -92,6 +120,16 @@ const PathFinder = () => {
     const visitedNodes = astar(grid, startNode, finishNode);
     const nodesInShortestPath = getNodesInShortestPathAstar(finishNode);
     animatePath(visitedNodes, nodesInShortestPath);
+    setTimeout(()=>{
+      const disableButton1={
+        ...disableButtons,
+        visualise:false,
+        clearBoard:false,
+        previousBoard:false,
+        maze:false
+      }
+      setDisableButtons(disableButton1);
+    },visitedNodes.length*10);
   };
 
   const findBfs = () => {
@@ -104,6 +142,16 @@ const PathFinder = () => {
     //console.log(nodesInShortestPath);
     // const nodesInShortestPath=[];
     animatePath(visitedNodes, nodesInShortestPath);
+    setTimeout(()=>{
+      const disableButton1={
+        ...disableButtons,
+        visualise:false,
+        clearBoard:false,
+        previousBoard:false,
+        maze:false
+      }
+      setDisableButtons(disableButton1);
+    },visitedNodes.length*10);
   };
 
   const bidirectionalBFS = () => {
@@ -120,6 +168,16 @@ const PathFinder = () => {
       midFromEnd
     );
     animatePath(visitedNodes, nodesInShortestPath);
+    setTimeout(()=>{
+      const disableButton1={
+        ...disableButtons,
+        visualise:false,
+        clearBoard:false,
+        previousBoard:false,
+        maze:false
+      }
+      setDisableButtons(disableButton1);
+    },visitedNodes.length*10);
   };
   const dfsRecursiveMaze = () => {
     const startX = Math.floor(Math.random() * grid.length);
@@ -299,15 +357,57 @@ const PathFinder = () => {
   };
   const visualizeAlgorithm = () => {
     if (algorithm === "A* Search") {
+      const disableButton={
+        ...disableButtons,
+        visualise:true,
+        clearBoard:true,
+        previousBoard:true,
+        maze:true
+      }
+      setDisableButtons(disableButton);
       findAstar();
     } else if (algorithm === "Dijkstra Search") {
+      const disableButton={
+        ...disableButtons,
+        visualise:true,
+        clearBoard:true,
+        previousBoard:true,
+        maze:true
+      }
+      setDisableButtons(disableButton);
       findDijkstraPath();
     } else if (algorithm === "Bi-directional BFS") {
+      const disableButton={
+        ...disableButtons,
+        visualise:true,
+        clearBoard:true,
+        previousBoard:true,
+        maze:true
+      }
+      setDisableButtons(disableButton);
       bidirectionalBFS();
     } else if (algorithm === "Breadth First Search") {
+      const disableButton={
+        ...disableButtons,
+        visualise:true,
+        clearBoard:true,
+        previousBoard:true,
+        maze:true
+      }
+      setDisableButtons(disableButton);
       findBfs();
     } else if (algorithm === "Depth First Search") {
+      const disableButton={
+        ...disableButtons,
+        visualise:true,
+        clearBoard:true,
+        previousBoard:true,
+        maze:true
+      }
+      setDisableButtons(disableButton);
       findDfs();
+    } else{
+      alert("Choose an Alogrithm First");
     }
   };
   const visualizeMaze = () => {
@@ -317,6 +417,8 @@ const PathFinder = () => {
       dfsRecursiveMaze();
     } else if (maze === "Random Walls") {
       kruskalMaze();
+    } else{
+      alert("Choose Maze Algorithm First")
     }
   };
   const [algorithm, setAlgorithm] = useState("");
@@ -327,7 +429,7 @@ const PathFinder = () => {
         <img src={cover} alt="Missing" width="50px" height="40px" className={style.image}></img>
         <FormControl variant={COLS<20?"filled":"outlined"} centered className={style.formControl}>
           <InputLabel id="alogrithm-selector">
-            <Typography color="secondary" style={{fontFamily:"'Vollkorn', serif"}} className={style.labelText} align="center" display="inline">
+            <Typography style={{fontFamily: "'Kodchasan', sans-serif"}} className={style.labelText} align="center" display="inline">
               Choose Pathfinding Algorithm
             </Typography>
           </InputLabel>
@@ -359,6 +461,7 @@ const PathFinder = () => {
           variant="outlined"
           onClick={() => visualizeAlgorithm()}
           className={style.button}
+          disabled={disableButtons.visualise}
         >
           <Typography variant="body2" className={style.buttonText}>
             Visualise {algorithm}
@@ -369,6 +472,7 @@ const PathFinder = () => {
           variant="outlined"
           onClick={() => getPreviousBoard()}
           className={style.button}
+          disabled={disableButtons.previousBoard}
         >
           <Typography variant="body2" className={style.buttonText}>
             Previous Board
@@ -379,6 +483,7 @@ const PathFinder = () => {
           variant="outlined"
           onClick={() => clearBoard()}
           className={style.button}
+          disabled={disableButtons.clearBoard}
         >
           <Typography variant="body2" className={style.buttonText}>
             Clear Board
@@ -389,6 +494,7 @@ const PathFinder = () => {
           variant="outlined"
           onClick={() => visualizeMaze()}
           className={style.button}
+          disabled={disableButtons.maze}
         >
           <Typography variant="body2" className={style.buttonText}>
             Visualise Maze
@@ -397,7 +503,7 @@ const PathFinder = () => {
         </div>
         <FormControl variant={COLS<20?"filled":"outlined"} className={style.formControl}>
           <InputLabel id="maze-selector">
-            <Typography color="secondary" align="center" className={style.labelText} style={{fontFamily: "'Vollkorn', serif"}}>
+            <Typography align="center" className={style.labelText} style={{fontFamily: "'Kodchasan', sans-serif"}}>
               Generate Mazes
             </Typography>
           </InputLabel>

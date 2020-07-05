@@ -1,3 +1,32 @@
+# <img src="./src/icons/cover.png" width="60px" height="55px"/> Pathfinding Visualiser
+You must've heard of many pathfinding algorithms but do you ever wonder how they work?
+This is a pathfinding visualiser where you can visualise some of the famous pathfinding algorithms and see how they really work for finding the path between source and destination. Play with this tool and gain some knowledge about fascinating pathfinding algorithms.
+## Features
+* One source and one destination anywhere in the board.
+* You can also draw walls to block path from source to destination.Path will never go through the wall.
+* Maze generation using different maze generation algorithms.
+    * *DFS recursice backtarcking maze algorithm*
+    * *Recursive divison maze algorithm*
+    * *Random Walls - using kruskal's algorithm*
+* Reset the board to same source and destination.
+* Reset the board to initial state i.e totally clear.
+* Optimized web-app for small,medium and large screen devices.
+
+## Implemented Algorithms
+* *A  star search*(weighted) - Arguably, the best pathfinding algorithm, uses heuristics to guarantees the shortest path much faster than Dijkstra's Algorithm.
+* *Dijkstra Search*(weighted) - One of the best pathfinding algorithms. It guarantees the shortest path from source to destination.
+* *Breadth First Search*(unweighted) - Great algorithm, it guarantees the shortest path but works slower than then dijkstra algorithm.
+* *Depth Birst Search* (unweighted) - Not a good choice for pathfinding algorithms, doesn't guarantees the shortest path.
+* *Bi-directional BFS* (unweighted) - Great algorithm, runs two breadth first search, from source and destination. It guarantees the shortest path and much faster than single breadth first search.
+
+#### *NOTE: Read the instructions before using the tool as it can be quiet tricky to use for first time.*
+
+<img src="./src/pathfindmobile.gif" width="200px" height="350px"/> <img src="./src/pathfindmobile1.gif" width="200px" height="350px"/>
+
+<img src="./src/pathfind.gif" width="900px" height="550px"/>
+
+Also, inspired by [Clement Mihailescu]("")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

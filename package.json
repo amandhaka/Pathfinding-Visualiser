@@ -2,7 +2,7 @@
   "name": "pathfinding",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://amandhaka.github.io/Pathfinding-Visualizer/",
+  "homepage": "https://amandhaka.github.io/Pathfinding-Visualiser/",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@material-ui/lab": "^4.0.0-alpha.56",
